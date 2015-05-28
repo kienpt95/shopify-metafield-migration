@@ -99,7 +99,7 @@ var api = new ShopifyAPI(config.shopDomain, config.token);
                                 //         }
                                 //
                                 //         callback(null);
-                                //
+                                // 
                                 // }, function(err) {
                                 //     console.log(err);
                                 // });
@@ -118,10 +118,11 @@ var api = new ShopifyAPI(config.shopDomain, config.token);
             ], function(err, res) {
 
                 if (err) {
-                    console.log('An error occurred while migrating product id', product.id);
+                    console.log(err);
+                    console.log('An error occurred while migrating product id', product.variants[0].sku);
                 }
 
-                console.log('Migration complete for product id', product.id);
+                console.log('Migration complete for product id', product.variants[0].sku);
 
             });
 
