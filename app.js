@@ -48,6 +48,7 @@ var api = new ShopifyAPI(config.shopDomain, config.token);
                     console.log('Skipping migration for product id', product.id);
                     return;
                 }
+
             });
 
             /**
@@ -89,24 +90,22 @@ var api = new ShopifyAPI(config.shopDomain, config.token);
 
                                 console.log('Updating product with tag(s)', tags);
 
-                                // api.put('/admin/products/' + product.id + '.json', {
-                                //     id: product.id,
-                                //     tags: tags
-                                // }).then(function(res) {
-                                //
-                                //         if (res.statusCode != 200) {
-                                //             return callback(res.statusCode);
-                                //         }
-                                //
-                                //         callback(null);
-                                // 
-                                // }, function(err) {
-                                //     console.log(err);
-                                // });
+                                api.put('/admin/products/' + product.id + '.json', {
+                                    product: {
+                                        id: product.id,
+                                        tags: tags
+                                    }
+                                }).then(function(res) {
 
-                                // sample run! remove this line and callback below.
-                                // also uncomment API call above.
-                                callback(null);
+                                        if (res.statusCode != 200) {
+                                            return callback(res.statusCode);
+                                        }
+
+                                        callback(null);
+
+                                }, function(err) {
+                                    console.log(err);
+                                });
 
                             }
 
