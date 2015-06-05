@@ -3,8 +3,8 @@
  */
 
 var config = {
-    token: 'd6ed6a80c9e1d4d68589d066dee2a520',
-    shopDomain: 'shinesty.myshopify.com',
+    token: 'TOKEN',
+    shopDomain: 'DOMAIN.myshopify.com',
 };
 
 module.exports = config;
